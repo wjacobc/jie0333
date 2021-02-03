@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Firebase credential .json files
+creds/
+
+# macOS folder files
+.DS_Store
