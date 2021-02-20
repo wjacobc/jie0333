@@ -1,13 +1,16 @@
 import feedparser
+import ssl
+import firebase_utils
 from newsitem import NewsItem
 from datetime import datetime
-import ssl
 
 if hasattr(ssl, '_create_unverified_context'):
     ssl._create_default_https_context = ssl._create_unverified_context
 
+
 def check_case_insensitive(word, headline, snippet):
     return word.lower() in headline or word.lower() in snippet
+
 
 def match_tags(article_list):
     # get potential tags from source
@@ -22,18 +25,6 @@ def match_tags(article_list):
                 if check_case_insensitive(word, headline_words, snippet_words):
                     article.tags.append(word)
 
-
-def firebase_last_ran():
-    # connect to firebase
-    # get the last time the scraper ran and return as datetime object
-
-    # for now it's just february 10 2021
-    return datetime.strptime("02/10/2021", "%m/%d/%Y")
-
-def update_firebase_last_ran():
-    # push the current date and time to firebase
-    # to update the entry for when we last ran the scraper
-    pass
 
 def cdc_rss():
     cdc = feedparser.parse("https://tools.cdc.gov/podcasts/feed.asp?feedid=183")
@@ -54,7 +45,6 @@ def cdc_rss():
         newsitems.append(newsitem_entry)
 
     return newsitems
-
 
 
 def nih_rss():
@@ -114,16 +104,14 @@ def collect_articles():
 
     # just get the articles that have been added to the RSS feeds since the
     # last time we ran the scraper
-    last_ran_scraper = firebase_last_ran()
+    last_ran_scraper = firebase_utils.last_ran_scraper()
     recent_articles = [article for article in articles if article.publish_date > last_ran_scraper]
 
     match_tags(recent_articles)
 
     return recent_articles
 
+
 if __name__ == "__main__":
     articles_to_upload = collect_articles()
-    for article in articles_to_upload:
-        print(article)
-        print("\n")
-    update_firebase_last_ran()
+    firebase_utils.update_last_ran()
