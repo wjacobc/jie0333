@@ -1,12 +1,27 @@
 import feedparser
 from newsitem import NewsItem
 from datetime import datetime
+import ssl
 
-def match_tags(headline, snippet):
-    tags = []
+if hasattr(ssl, '_create_unverified_context'):
+    ssl._create_default_https_context = ssl._create_unverified_context
+
+def check_case_insensitive(word, headline, snippet):
+    return word.lower() in headline or word.lower() in snippet
+
+def match_tags(article_list):
     # get potential tags from source
     # compare headline and snippet with tags to see which match
-    return tags
+    with open("keywords.txt", "r") as keywords_file:
+        for article in article_list:
+            keywords = keywords_file.read().split("\n")[:-1]
+            headline_words = article.headline.lower().split(" ")
+            snippet_words = article.snippet.lower().split(" ")
+
+            for word in keywords:
+                if check_case_insensitive(word, headline_words, snippet_words):
+                    article.tags.append(word)
+
 
 def firebase_last_ran():
     # connect to firebase
@@ -34,13 +49,12 @@ def cdc_rss():
         publish_date = date_object
         snippet = entry["summary"]
         url = entry["link"]
-        tags = match_tags(headline, snippet)
-        
-        newsitem_entry = NewsItem(headline, source, publish_date, snippet, url, tags)
+
+        newsitem_entry = NewsItem(headline, source, publish_date, snippet, url)
         newsitems.append(newsitem_entry)
 
     return newsitems
-        
+
 
 
 def nih_rss():
@@ -57,10 +71,9 @@ def nih_rss():
         publish_date = date_object
         snippet = entry["summary"]
         url = entry["link"]
-        tags = match_tags(headline, snippet)
 
         # compile the information into the shared object format
-        newsitem_entry = NewsItem(headline, source, publish_date, snippet, url, tags)
+        newsitem_entry = NewsItem(headline, source, publish_date, snippet, url)
         newsitems.append(newsitem_entry)
 
     return newsitems
@@ -80,15 +93,14 @@ def nyt_rss():
         headline = entry["title"]
         source = "The New York Times"
         publish_date = date_object
-        # some NYT articles have empty snippets, should we skip these 
+        # some NYT articles have empty snippets, should we skip these
         # or try to create one?
         snippet = entry["summary"]
         url = entry["link"]
-        tags = match_tags(headline, snippet)
         # NYT has tags in entry["tags"] - do we want to use these?
         # problem is they will likely not line up with the ones we generate
 
-        newsitem_entry = NewsItem(headline, source, publish_date, snippet, url, tags)
+        newsitem_entry = NewsItem(headline, source, publish_date, snippet, url)
         newsitems.append(newsitem_entry)
 
     return newsitems
@@ -105,8 +117,13 @@ def collect_articles():
     last_ran_scraper = firebase_last_ran()
     recent_articles = [article for article in articles if article.publish_date > last_ran_scraper]
 
+    match_tags(recent_articles)
+
     return recent_articles
 
 if __name__ == "__main__":
     articles_to_upload = collect_articles()
+    for article in articles_to_upload:
+        print(article)
+        print("\n")
     update_firebase_last_ran()
