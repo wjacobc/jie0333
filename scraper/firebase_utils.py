@@ -13,8 +13,6 @@ def last_ran_scraper():
     # connect to firebase
     # get the last time the scraper ran and return as datetime object
 
-    # for now it's just february 10 2021
-
     ref = db.reference("last_ran")
     return datetime.strptime(ref.get(), "%Y-%m-%d %H:%M:%S.%f")
 
@@ -23,3 +21,10 @@ def update_last_ran():
     # to update the entry for when we last ran the scraper
     last_ran = db.reference('last_ran')
     last_ran.set(str(datetime.now()))
+
+
+def upload_newsitems(newsitem_list):
+    newsitems_ref = db.reference("newsitems")
+    for item in newsitem_list:
+        newsitems_ref.push(item.to_json())
+

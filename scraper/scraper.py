@@ -4,6 +4,7 @@ import firebase_utils
 from newsitem import NewsItem
 from datetime import datetime
 
+# patch ssl library for newer versions of python where feedparser has an issue
 if hasattr(ssl, '_create_unverified_context'):
     ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -12,18 +13,18 @@ def check_case_insensitive(word, headline, snippet):
     return word.lower() in headline or word.lower() in snippet
 
 
-def match_tags(article_list):
+def match_tags(news_list):
     # get potential tags from source
     # compare headline and snippet with tags to see which match
     with open("keywords.txt", "r") as keywords_file:
         keywords = keywords_file.read().split("\n")[:-1]
-        for article in article_list:
-            headline_words = article.headline.lower().split(" ")
-            snippet_words = article.snippet.lower().split(" ")
+        for newsitem in news_list:
+            headline_words = newsitem.headline.lower().split(" ")
+            snippet_words = newsitem.snippet.lower().split(" ")
 
             for word in keywords:
                 if check_case_insensitive(word, headline_words, snippet_words):
-                    article.tags.append(word)
+                    newsitem.tags.append(word)
 
 
 def cdc_rss():
@@ -77,7 +78,7 @@ def nyt_rss():
     for entry in entries:
         # convert the string date representation into a python datetime object
         date_object = datetime.strptime(entry["published"], "%a, %d %b %Y %H:%M:%S %z")
-        # remove the time zone offset so we can compare it to other articles
+        # remove the time zone offset so we can compare it to other newsitems
         date_object = date_object.replace(tzinfo = None)
 
         headline = entry["title"]
@@ -96,22 +97,23 @@ def nyt_rss():
     return newsitems
 
 
-def collect_articles():
-    nih_articles = nih_rss()
-    cdc_articles = cdc_rss()
-    nyt_articles = nyt_rss()
-    articles = nih_articles + cdc_articles + nyt_articles
+def collect_news():
+    nih_news = nih_rss()
+    cdc_news = cdc_rss()
+    nyt_news = nyt_rss()
+    all_news = nih_news + cdc_news + nyt_news
 
-    # just get the articles that have been added to the RSS feeds since the
+    # just get the items that have been added to the RSS feeds since the
     # last time we ran the scraper
     last_ran_scraper = firebase_utils.last_ran_scraper()
-    recent_articles = [article for article in articles if article.publish_date > last_ran_scraper]
+    recent_news = [newsitem for newsitem in all_news if newsitem.publish_date > last_ran_scraper]
 
-    match_tags(recent_articles)
+    match_tags(recent_news)
 
-    return recent_articles
+    return recent_news
 
 
 if __name__ == "__main__":
-    articles_to_upload = collect_articles()
+    news_to_upload = collect_news()
+    firebase_utils.upload_newsitems(news_to_upload)
     firebase_utils.update_last_ran()
