@@ -16,8 +16,8 @@ def match_tags(article_list):
     # get potential tags from source
     # compare headline and snippet with tags to see which match
     with open("keywords.txt", "r") as keywords_file:
+        keywords = keywords_file.read().split("\n")[:-1]
         for article in article_list:
-            keywords = keywords_file.read().split("\n")[:-1]
             headline_words = article.headline.lower().split(" ")
             snippet_words = article.snippet.lower().split(" ")
 
