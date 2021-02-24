@@ -8,7 +8,7 @@ def who_rss():
     newsitems=[]
     for entry in entries:
         date_object = datetime.strptime(entry["published"], "%a, %d %b %Y %H:%M:%S %Z")
-
+        date_object=date_object.replace(tzinfo=None)
         headline = entry["title"]
         source = "World Health Organization"
         publish_date = date_object
