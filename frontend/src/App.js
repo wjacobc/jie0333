@@ -1,7 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import firebase from "./firebase_config";
+import { useEffect } from "react";
+
+let newsitems = [];
 
 function App() {
+  useEffect(() => {
+    let ref = firebase.database().ref("newsitems");
+    ref.on("value", (snapshot) => {
+      newsitems = snapshot.val();
+      console.log(newsitems);
+    });
+  });
+
   return (
     <div className="App">
       <header className="App-header">
