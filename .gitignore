@@ -133,6 +133,3 @@ creds/
 
 # macOS folder files
 .DS_Store
-
-# React node_modules
-node_modules/
