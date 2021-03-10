@@ -1,0 +1,148 @@
+{
+  "newsitems" : {
+    "-MTzE-Iyg1hPu2pJCH5k" : {
+      "headline" : "To end HIV epidemic, we must address health disparities",
+      "publish_date" : "2021-02-19 13:45:00",
+      "snippet" : "Expert report cites unequal progress in Southern U.S. and among marginalized groups. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['HIV', 'Health', 'Disparities']",
+      "url" : "https://www.nih.gov/news-events/news-releases/end-hiv-epidemic-we-must-address-health-disparities"
+    },
+    "-MTzE-RoTn5CyDfM5CPp" : {
+      "headline" : "NIH funds study to evaluate remdesivir for COVID-19 in pregnancy",
+      "publish_date" : "2021-02-17 14:15:00",
+      "snippet" : "The study will be conducted at 17 sites in the continental United States and Puerto Rico. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['COVID-19', 'Pregnancy', 'Remdesivir', 'study', 'BE']",
+      "url" : "https://www.nih.gov/news-events/news-releases/nih-funds-study-evaluate-remdesivir-covid-19-pregnancy"
+    },
+    "-MTzE-VkXvgCK-WwSDmI" : {
+      "headline" : "Genetic study of Lewy body dementia supports ties to Alzheimer’s and Parkinson’s diseases",
+      "publish_date" : "2021-02-16 20:00:00",
+      "snippet" : "NIH-led study locates five genes that may play a critical role in Lewy body dementia. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['Dementia', 'genetic', 'Genes', 'study']",
+      "url" : "https://www.nih.gov/news-events/news-releases/genetic-study-lewy-body-dementia-supports-ties-alzheimers-parkinsons-diseases"
+    },
+    "-MTzE-YJ2ZLSBG3ng5BZ" : {
+      "headline" : "Combination treatment for common glioma type shows promise in mice",
+      "publish_date" : "2021-02-16 19:30:00",
+      "snippet" : "NIH-funded preclinical study suggests new approach to treat a type of brain tumor </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['Treatment', 'Glioma', 'Tumor', 'Brain', 'Combination', 'study']",
+      "url" : "https://www.nih.gov/news-events/news-releases/combination-treatment-common-glioma-type-shows-promise-mice"
+    },
+    "-MTzE-e6--AT8alC2pFY" : {
+      "headline" : "Researchers propose that humidity from masks may lessen severity of COVID-19",
+      "publish_date" : "2021-02-12 21:00:00",
+      "snippet" : "NIH study compares how different face masks affect humidity inside the mask. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['COVID-19', 'Affect', 'Face', 'severity', 'study']",
+      "url" : "https://www.nih.gov/news-events/news-releases/researchers-propose-humidity-masks-may-lessen-severity-covid-19"
+    },
+    "-MTzE-hyTCCaIu3Evjx1" : {
+      "headline" : "Study Identifies Risk Factors for Elevated Anxiety in Young Adults During COVID-19 Pandemic",
+      "publish_date" : "2021-02-12 17:00:00",
+      "snippet" : "Findings on impact of childhood temperament could help with anxiety prevention efforts. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['COVID-19', 'Anxiety', 'Prevention', 'Adults', 'Pandemic', 'Childhood', 'Risk', 'Young', 'Impact', 'study', 'Temperament']",
+      "url" : "https://www.nih.gov/news-events/news-releases/study-identifies-risk-factors-elevated-anxiety-young-adults-during-covid-19-pandemic"
+    },
+    "-MTzE-phfyLY7h3fncJw" : {
+      "headline" : "NIH experts discuss SARS-CoV-2 viral variants",
+      "publish_date" : "2021-02-12 15:00:00",
+      "snippet" : "Editorial emphasizes need for global response. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['SARS-CoV-2', 'Viral']",
+      "url" : "https://www.nih.gov/news-events/news-releases/nih-experts-discuss-sars-cov-2-viral-variants"
+    },
+    "-MTzE-tQJnntaD7yLYju" : {
+      "headline" : "Four potential COVID-19 therapeutics enter Phase 2/3 testing in NIH ACTIV-2 trial",
+      "publish_date" : "2021-02-12 14:30:00",
+      "snippet" : "The added sub-studies will test four interventions for safety and efficacy. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['COVID-19', 'Safety', 'Therapeutics', 'trial', 'Testing', 'Interventions', 'test']",
+      "url" : "https://www.nih.gov/news-events/news-releases/four-potential-covid-19-therapeutics-enter-phase-2-3-testing-nih-activ-2-trial"
+    },
+    "-MTzE-wTqnHjWxpZXJE0" : {
+      "headline" : "NIH calls for greater inclusion of pregnant and lactating people in COVID-19 vaccine research",
+      "publish_date" : "2021-02-10 16:15:00",
+      "snippet" : "Obstacles to include pregnant and lactating people in clinical research are longstanding. </p>",
+      "source" : "National Insitutes of Health",
+      "tags" : "['COVID-19', 'Vaccine', 'Pregnant', 'Clinical', 'Research']",
+      "url" : "https://www.nih.gov/news-events/news-releases/nih-calls-greater-inclusion-pregnant-lactating-people-covid-19-vaccine-research"
+    },
+    "-MTzE0-1TD6FqQx-Lcct" : {
+      "headline" : "CDC MEDIA TELEBRIEFING: National Forum on COVID-19 Vaccine",
+      "publish_date" : "2021-02-19 16:29:00",
+      "snippet" : "The Centers for Disease Control and Prevention (CDC) is hosting a virtual <a href=\"https://www.cdc.gov/covidvaccineforum\">National Forum on COVID-19 Vaccine for vaccine practitioners and champions</a>.",
+      "source" : "Centers for Disease Control",
+      "tags" : "['COVID-19', 'Prevention', 'Vaccine', 'Control', 'Disease', 'Virtual', 'media']",
+      "url" : "https://tools.cdc.gov/podcasts/download.asp?m=132608&c=416952"
+    },
+    "-MTzE08Eeaa7ms3U65fY" : {
+      "headline" : "CDC Food Safety Alert: CDC investigating fast-moving outbreak of Listeria infections",
+      "publish_date" : "2021-02-12 16:08:00",
+      "snippet" : "A CDC food safety alert regarding a multistate outbreak of <em>Listeria </em>infections linked to Hispanic-style fresh and soft cheeses has been posted: <a href=\"https://www.cdc.gov/listeria/outbreaks/hispanic-soft-cheese-02-21/index.html\">https://www.cdc.gov/listeria/outbreaks/hispanic-soft-cheese-02-21/index.html</a>",
+      "source" : "Centers for Disease Control",
+      "tags" : "['Safety', 'Infections', 'Food']",
+      "url" : "https://tools.cdc.gov/podcasts/download.asp?m=132608&c=416800"
+    },
+    "-MTzE0SxjaG3X-930zGd" : {
+      "headline" : "Clinical Trials Are Moving Out of the Lab and Into People’s Homes",
+      "publish_date" : "2021-02-18 17:02:23",
+      "snippet" : "After the pandemic forced thousands of trials to shut down, researchers found clever ways to conduct human studies remotely — while reaching more people, quickly and cheaply.",
+      "source" : "The New York Times",
+      "tags" : "['Human', 'Pandemic', 'Clinical']",
+      "url" : "https://www.nytimes.com/2021/02/18/health/clinical-trials-pandemic.html"
+    },
+    "-MTzE0UTd9-kq6QCNfRn" : {
+      "headline" : "Scientists Call on CDC to Set Air Standards for Workplaces, Now",
+      "publish_date" : "2021-02-17 17:08:08",
+      "snippet" : "The agency has not fully reckoned with airborne transmission of the coronavirus in settings like hospitals, schools and meatpacking plants, experts said.",
+      "source" : "The New York Times",
+      "tags" : "['Coronavirus', 'Transmission', 'Schools']",
+      "url" : "https://www.nytimes.com/2021/02/17/health/coronavirus-aerosols-workplaces.html"
+    },
+    "-MTzE0XviMldeJDlaPTu" : {
+      "headline" : "Some Teens Volunteer for Covid Vaccine Trials to Get Their Lives Back",
+      "publish_date" : "2021-02-16 23:57:18",
+      "snippet" : "Immunizing teenagers is a critical part of slowing the pandemic and reaching herd immunity. But enrolling them in clinical trials poses challenges that are very different than wrangling adults.",
+      "source" : "The New York Times",
+      "tags" : "['Vaccine', 'COVID', 'Pandemic', 'Volunteer', 'Clinical', 'Teens', 'teenagers', 'back']",
+      "url" : "https://www.nytimes.com/2021/02/16/health/covid-vaccine-teens.html"
+    },
+    "-MTzE0bZBVufmiwHBF6a" : {
+      "headline" : "Covid-Linked Syndrome in Children Is Growing, and Cases Are More Severe",
+      "publish_date" : "2021-02-17 10:50:52",
+      "snippet" : "The condition, which usually emerges several weeks after infection, is still rare, but can be dangerous. “A higher percentage of them are really critically ill,” one doctor said.",
+      "source" : "The New York Times",
+      "tags" : "['Children', 'Severe', 'Syndrome', 'BE']",
+      "url" : "https://www.nytimes.com/2021/02/16/health/covid-children-inflammatory-syndrome.html"
+    },
+    "-MTzE0eOG3_BzkNOhqnK" : {
+      "headline" : "Piecing Together the Next Pandemic",
+      "publish_date" : "2021-02-16 08:29:42",
+      "snippet" : "From a small lab in Cambodia, Dr. Jessica Manning is on the lookout for emerging diseases.",
+      "source" : "The New York Times",
+      "tags" : "['Pandemic']",
+      "url" : "https://www.nytimes.com/2021/02/16/health/coronavirus-pandemic-cambodia-manning.html"
+    },
+    "-MTzE0fwLXt8Qh7uJu4h" : {
+      "headline" : "7 Virus Variants Found in U.S. Carrying the Same Mutation",
+      "publish_date" : "2021-02-15 16:28:22",
+      "snippet" : "Scientists don’t know yet whether the mutation makes the variants more contagious, but they are concerned that it might.",
+      "source" : "The New York Times",
+      "tags" : "['Virus', 'Mutation']",
+      "url" : "https://www.nytimes.com/2021/02/14/health/coronavirus-variants-evolution.html"
+    },
+    "-MTzE0l9s2p6WEigeh0I" : {
+      "headline" : "W.H.O. Researcher Seeking Coronavirus Origins on His Trip to China",
+      "publish_date" : "2021-02-14 10:00:11",
+      "snippet" : "An interview with Peter Daszak, an animal disease specialist, just after his return from an investigative research mission to Wuhan, the site of the original Covid outbreak, and surrounding areas.",
+      "source" : "The New York Times",
+      "tags" : "['COVID', 'Coronavirus', 'China', 'Disease', 'Interview', 'Research']",
+      "url" : "https://www.nytimes.com/2021/02/14/health/WHO-covid-daszak-china-virus.html"
+    }
+  }
+}
