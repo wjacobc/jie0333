@@ -1,7 +1,9 @@
 import "./App.css";
 import firebase from "./firebase_config";
-import { ChakraProvider, Heading, List, ListItem, Box } from "@chakra-ui/react";
-import setList from "./listObject.js"
+import { ChakraProvider, Box } from "@chakra-ui/react";
+import ListObject from "./listObject.js";
+import SearchObject from "./searchObject.js";
+import theme from "./theme.js"
 
 let newsitems = [];
 
@@ -16,7 +18,10 @@ function getFirebaseNewsItems() {
 
 function App() {
     return (
-        <div>{setList()}</div>
+    	<div>
+	    	<Box>{SearchObject()}</Box>
+	        <Box>{ListObject()}</Box>
+	    </div>
     );
 }
 
