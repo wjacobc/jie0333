@@ -13,9 +13,9 @@ function SearchObject() {
 	return (
 		<InputGroup size="lg">
 			<Input
-				w="50%"
-				value={value} 
-				placeholder="Search for Headline" 
+				w="70%"
+				value={value}
+				placeholder="Search for Headline"
 				onChange={event => setValue(event.target.value)} />
 			<InputRightAddon>
 				<Button size="sm" onClick={handleClick}>Search</Button>
