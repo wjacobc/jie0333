@@ -1,5 +1,4 @@
-import firebase from "./firebase_config";
-import { ChakraProvider, List, ListItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, ModalFooter, Button, useDisclosure, Divider } from "@chakra-ui/react";
+import { List, ListItem } from "@chakra-ui/react";
 import React from "react";
 
 const data = require("./test_data.json").newsitems;
@@ -42,7 +41,7 @@ function SetListItem(article) {
         <div class = "newsitem">
             <ListItem key={article.url} rounded="md">
                 <div class = "headline">
-                    <a href = {article.url}><b>{article.headline}</b></a>
+                    <a href = {article.url} target = "blank"><b>{article.headline}</b></a>
                 </div>
 
                 <div class = "source">{article.source}</div>

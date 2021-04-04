@@ -1,9 +1,8 @@
 import "./App.css";
 import firebase from "./firebase_config";
-import { ChakraProvider, Box, Heading, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Heading, Flex, Spacer } from "@chakra-ui/react";
 import ListObject from "./listObject.js";
 import SearchObject from "./searchObject.js";
-import theme from "./theme.js"
 
 let newsitems = [];
 
