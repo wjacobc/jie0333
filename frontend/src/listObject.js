@@ -1,28 +1,23 @@
-import { List, ListItem } from "@chakra-ui/react";
-import React from "react";
+import { List, Text, ListItem } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
 
-const data = require("./test_data.json").newsitems;
-const keys = Object.keys(data);
+function ListObject(props) {
+    const [articles, setArticles] = useState([]);
 
-function ListObject(titleSearch) {
-        const articleList = [];
-        if (arguments.length === 0) {
-                for (var i = 0; i < keys.length; i++) {
-                        articleList.push(SetListItem(data[keys[i]]));
-                }
-        } else {
-                for (var j = 0; j < keys.length; j++) {
-                        if (data[keys[i]].headline.includes(titleSearch)) {
-                                articleList.push(SetListItem(data[keys[j]]));
-                        }
-                }
+    useEffect(() => {
+        for (const item in props.newsitems[0]) {
+            var articleList = [];
+            articleList.push(props.newsitems[0][item]);
         }
+        setArticles(articleList);
+    }, []);
 
-        return(
-                <List>
-                        {articleList}
-                </List>
-        );
+    console.log(articles);
+    return(
+        <List>
+            {articles}
+        </List>
+    );
 }
 
 function generateTagString(tags) {
@@ -33,20 +28,21 @@ function generateTagString(tags) {
     return tags;
 }
 
-function SetListItem(article) {
+function NewsListItem(props) {
 
-    let tagString = generateTagString(article.tags);
+    console.log(props.article);
+    let tagString = generateTagString(props.article.tags);
 
     return(
         <div class = "newsitem">
-            <ListItem key={article.url} rounded="md">
+            <ListItem key={props.article.url} rounded="md">
                 <div class = "headline">
-                    <a href = {article.url} target = "blank"><b>{article.headline}</b></a>
+                    <a href = {props.article.url} target = "blank"><b>{props.article.headline}</b></a>
                 </div>
 
-                <div class = "source">{article.source}</div>
-                <div>{article.publish_date}</div>
-                <div>{article.snippet}</div>
+                <div class = "source">{props.article.source}</div>
+                <div>{props.article.publish_date}</div>
+                <div>{props.article.snippet}</div>
 
                 <div class = "tags">Tags: {tagString}</div>
             </ListItem>
