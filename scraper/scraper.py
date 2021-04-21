@@ -18,13 +18,12 @@ def match_tags(news_list):
 
             for word in keywords:
                 if check_case_insensitive(word, headline_words, snippet_words):
-                    newsitem.tags.append(word)
-
-
+                    newsitem.tags[word] = True
 
 
 def get_news_match_tags():
     all_news = rss_parsers.gather_all_news()
+
     # just get the items that have been added to the RSS feeds since the
     # last time we ran the scraper
     last_ran_scraper = firebase_utils.last_ran_scraper()
