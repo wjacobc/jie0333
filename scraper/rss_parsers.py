@@ -156,8 +156,6 @@ def nyt_rss():
         # or try to create one?
         snippet = entry["summary"]
         url = entry["link"]
-        # NYT has tags in entry["tags"] - do we want to use these?
-        # problem is they will likely not line up with the ones we generate
 
         newsitem_entry = NewsItem(headline, source, publish_date, snippet, url)
         newsitems.append(newsitem_entry)
