@@ -13,10 +13,13 @@ function App() {
         let ref = firebase.database().ref("newsitems");
         ref.on("value", (snapshot) => {
             const data = snapshot.val();
-            newsList.push(data);
+            for (const key in data) {
+                newsList.push(data[key]);
+            }
+        }, function(error) {
+            console.error(error)
         });
 
-        console.log(newsList);
         setNewsitems(newsList);
     }, []);
 
