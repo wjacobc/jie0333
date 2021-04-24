@@ -36,5 +36,12 @@ def get_news_match_tags():
 
 if __name__ == "__main__":
     news_to_upload = get_news_match_tags()
-    firebase_utils.upload_newsitems(news_to_upload)
-    firebase_utils.update_last_ran()
+    news_to_upload_sorted = sorted(news_to_upload, key = lambda news: news.publish_date)
+
+    latest_newsitem = news_to_upload_sorted[-1]
+
+    firebase_utils.upload_newsitems(news_to_upload_sorted)
+    firebase_utils.update_last_ran(latest_newsitem.publish_date)
+
+    num_uploaded = len(news_to_upload)
+    print("Uploaded " + str(num_uploaded) + " new news items")
