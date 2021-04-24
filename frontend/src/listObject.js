@@ -1,36 +1,37 @@
 import { List, Text, ListItem } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
 
 function ListObject(props) {
-    const [articles, setArticles] = useState([]);
-
-    useEffect(() => {
-        for (const item in props.newsitems[0]) {
-            var articleList = [];
-            articleList.push(props.newsitems[0][item]);
-        }
-        setArticles(articleList);
-    }, []);
-
-    console.log(articles);
-    return(
-        <List>
-            {articles}
-        </List>
-    );
+    if (props.newsitems === [] || props.newsitems == undefined) {
+        // this means no articles for that filter or tag were found
+        return(
+            <Text>Sorry, no articles could be found!</Text>
+        );
+    } else {
+        return(
+            <List>
+                {props.newsitems.map((item) => <NewsListItem article = {item} />)}
+            </List>
+        );
+    }
 }
 
 function generateTagString(tags) {
     // remove the list format text
-    tags = tags.replace("[", "");
-    tags = tags.replace("]", "");
-    tags = tags.replaceAll("'", "");
-    return tags;
+    tags = tags.replaceAll("'", "\"");
+    tags = tags.replaceAll("True", "true");
+    tags = tags.replaceAll("False","false");
+    tags = JSON.parse(tags);
+
+    var tagString = "";
+    for (const tag in tags) {
+        tagString += tag + ", ";
+    }
+
+    return tagString.slice(0, tagString.length - 2);
 }
 
 function NewsListItem(props) {
 
-    console.log(props.article);
     let tagString = generateTagString(props.article.tags);
 
     return(
