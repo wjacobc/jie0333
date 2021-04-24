@@ -1,0 +1,42 @@
+.app {
+    font-family: "Avenir", "Helvetica", sans-serif;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.header {
+    font-size: 1.75rem;
+    color: #377eff;
+    margin-bottom: 20px;
+}
+
+.search {
+    right: 0;
+}
+
+.newsitem {
+    background-color: #f8f9fa;
+    width: 60%;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #dddddd;
+}
+
+.headline {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.source {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.tags {
+    font-size: 12px;
+}
