@@ -20,7 +20,7 @@ class NewsItem():
 
 
     def to_json(self):
-        tags = str(self.tags).replace("True", "true").replace("False", "false")
+
         json_dict = {"headline": self.headline, "source": self.source, "publish_date": str(self.publish_date),
-                        "snippet": self.snippet, "url": self.url, "tags": tags}
+                        "snippet": self.snippet, "url": self.url, "tags": self.tags}
         return json_dict

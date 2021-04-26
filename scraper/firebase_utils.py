@@ -14,7 +14,7 @@ def last_ran_scraper():
     # get the last time the scraper ran and return as datetime object
 
     ref = db.reference("last_ran")
-    return datetime.strptime(ref.get(), "%Y-%m-%d %H:%M:%S.%f")
+    return datetime.strptime(ref.get(), "%Y-%m-%d %H:%M:%S")
 
 def update_last_ran(latest):
     # push the current date and time to firebase
