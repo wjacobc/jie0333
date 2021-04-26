@@ -9,12 +9,12 @@ function Newsfeed(props) {
     // use React state, and keep a list of all the newsitems so that we
     // can filter the ones that are currently shown based on user input
     // in the search bar
-    const [newsitems, setNewsitems] = useState([]);
-    const [allNewsitems, setAllNewsitems] = useState([]);
+    const [newsitems, setNewsitems] = useState();
+    const [allNewsitems, setAllNewsitems] = useState();
 
     useEffect(() => {
         // To the client: get the user's tags here
-        const userTags = ["Ebola", "Asthma"];
+        const userTags = ["Ebola", "Blood"];
 
         // limit the number of articles per topic, as the scraper continues
         // to store more data we may not always want to get all the articles
@@ -49,9 +49,9 @@ function Newsfeed(props) {
         // call is allowed, so we sort client-side
         newsList = newsList.sort((a, b) => (a.publish_date < b.publish_date) ? 1 : -1);
 
-        setNewsitems(newsList);
-        setAllNewsitems(newsList);
-    }, []);
+        setNewsitems([...newsList]);
+        setAllNewsitems([...newsList]);
+    }, [newsitems, allNewsitems]);
 
 
     function filterArticles(filterString) {
