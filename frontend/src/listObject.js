@@ -16,17 +16,10 @@ function ListObject(props) {
 }
 
 function generateTagString(tags) {
-    // remove the list format text
-    tags = tags.replaceAll("'", "\"");
-    tags = tags.replaceAll("True", "true");
-    tags = tags.replaceAll("False","false");
-    tags = JSON.parse(tags);
-
     var tagString = "";
     for (const tag in tags) {
         tagString += tag + ", ";
     }
-
     return tagString.slice(0, tagString.length - 2);
 }
 
