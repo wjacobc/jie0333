@@ -9,11 +9,12 @@ function Newsfeed(props) {
     // use React state, and keep a list of all the newsitems so that we
     // can filter the ones that are currently shown based on user input
     // in the search bar
-    const [newsitems, setNewsitems] = useState([]);
-    const [allNewsitems, setAllNewsitems] = useState([]);
+    const [newsitems, setNewsitems] = useState();
+    const [allNewsitems, setAllNewsitems] = useState();
 
 
     useEffect(() => {
+
         // To the client: get the user's tags here
         const userTags = ["Asthma", "Ebola"];
 
@@ -49,9 +50,9 @@ function Newsfeed(props) {
         // if we do server-side filtering for tags, since only one orderByChild
         // call is allowed, so we sort client-side
         newsList = newsList.sort((a, b) => (a.publish_date < b.publish_date) ? 1 : -1);
-
         setNewsitems(newsList);
         setAllNewsitems(newsList);
+
     }, []);
 
 
@@ -63,7 +64,7 @@ function Newsfeed(props) {
         for (const newsitem of allNewsitems) {
             if (newsitem.headline.includes(filterString) ||
                 newsitem.snippet.includes(filterString) ||
-                newsitem.tags.includes(filterString)) {
+                Object.keys(newsitem.tags).includes(filterString)) {
                 newList.push(newsitem);
             }
         }
