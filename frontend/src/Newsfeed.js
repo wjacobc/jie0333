@@ -6,29 +6,48 @@ import ListObject from "./listObject.js";
 import SearchObject from "./searchObject.js";
 
 function Newsfeed(props) {
+    // use React state, and keep a list of all the newsitems so that we
+    // can filter the ones that are currently shown based on user input
+    // in the search bar
     const [newsitems, setNewsitems] = useState([]);
     const [allNewsitems, setAllNewsitems] = useState([]);
 
-    const userTags = ["COVID-19"];
-
     useEffect(() => {
+        // To the client: get the user's tags here
+        const userTags = ["Ebola", "Asthma"];
+
+        // limit the number of articles per topic, as the scraper continues
+        // to store more data we may not always want to get all the articles
+        // dating back in perpetuity
+        const articleLimit = 25;
+
         var newsList = [];
+
         let ref = firebase.database().ref("newsitems");
-        ref.on("value", (snapshot) => {
-            const data = snapshot.val();
-            for (const key in data) {
-                const article = data[key];
-                const formattedTagString =
-                    article.tags.replaceAll("'", "\"").replaceAll("True", "true")
-                        .replaceAll("False", "false");
-                const tags = JSON.parse(formattedTagString);
-                if (Object.keys(tags).some(tag => userTags.includes(tag))) {
-                    newsList.push(article);
+
+        for (const tag of userTags) {
+            ref.orderByChild("tags/" + tag).equalTo(true)
+            .limitToLast(articleLimit).on("value", (snapshot) => {
+                const data = snapshot.val();
+
+                // get each article in the returned list, and add it to
+                // the front-end storage list if it's not already in there
+                for (const key in data) {
+                    const article = data[key];
+                    if (!newsList.includes(article)) {
+                        newsList.push(article);
+                    }
                 }
-            }
-        }, function(error) {
-            console.error(error)
-        });
+
+            }, function(error) {
+                console.error(error)
+            });
+        }
+
+        // Firebase can only give use the articles in oldest -> newest order
+        // if we do server-side filtering for tags, since only one orderByChild
+        // call is allowed, so we sort client-side
+        newsList = newsList.sort((a, b) => (a.publish_date < b.publish_date) ? 1 : -1);
 
         setNewsitems(newsList);
         setAllNewsitems(newsList);
@@ -37,6 +56,9 @@ function Newsfeed(props) {
 
     function filterArticles(filterString) {
         var newList = [];
+
+        // check if each newsitem has the searched for string
+        // in the headline, the snippet, or the tags
         for (const newsitem of allNewsitems) {
             if (newsitem.headline.includes(filterString) ||
                 newsitem.snippet.includes(filterString) ||
@@ -44,6 +66,7 @@ function Newsfeed(props) {
                 newList.push(newsitem);
             }
         }
+
         setNewsitems(newList);
     }
 
